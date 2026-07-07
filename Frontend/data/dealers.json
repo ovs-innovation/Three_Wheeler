@@ -1,0 +1,530 @@
+[
+  {
+    "id": "dealer-1",
+    "name": "Sri Vinayaka Auto Agencies",
+    "state": "Delhi",
+    "city": "New Delhi",
+    "address": "Plot No. 45, Sector 2, Industrial Area, New Delhi, Delhi - 110000",
+    "phone": "+91 98765 54321",
+    "email": "sales@srivinayakaautoagencies.com",
+    "brands": [
+      "Bajaj",
+      "TVS",
+      "Euler Motors"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Sri%20Vinayaka%20Auto%20Agencies%20New%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-2",
+    "name": "Shree Balaji Commercial Motors",
+    "state": "Maharashtra",
+    "city": "Pune",
+    "address": "Plot No. 53, Sector 3, Industrial Area, Pune, Maharashtra - 110115",
+    "phone": "+91 98765 54210",
+    "email": "sales@shreebalajicommercialmotors.com",
+    "brands": [
+      "Piaggio",
+      "Atul Auto",
+      "Omega Seiki"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Shree%20Balaji%20Commercial%20Motors%20Pune&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-3",
+    "name": "Apex Auto Distributors",
+    "state": "Karnataka",
+    "city": "Hubli",
+    "address": "Plot No. 61, Sector 4, Industrial Area, Hubli, Karnataka - 110230",
+    "phone": "+91 98765 54099",
+    "email": "sales@apexautodistributors.com",
+    "brands": [
+      "Mahindra",
+      "YC Electric",
+      "Kinetic Green"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Apex%20Auto%20Distributors%20Hubli&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-4",
+    "name": "Sai Ram Motors",
+    "state": "Tamil Nadu",
+    "city": "Chennai",
+    "address": "Plot No. 69, Sector 5, Industrial Area, Chennai, Tamil Nadu - 110345",
+    "phone": "+91 98765 53988",
+    "email": "sales@sairammotors.com",
+    "brands": [
+      "TVS",
+      "Altigreen",
+      "Lohia Auto"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Sai%20Ram%20Motors%20Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-5",
+    "name": "Ganga Three Wheeler Emporium",
+    "state": "Uttar Pradesh",
+    "city": "Lucknow",
+    "address": "Plot No. 77, Sector 6, Industrial Area, Lucknow, Uttar Pradesh - 110460",
+    "phone": "+91 98765 53877",
+    "email": "sales@gangathreewheeleremporium.com",
+    "brands": [
+      "Atul Auto",
+      "Euler Motors",
+      "Saera Electric"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Ganga%20Three%20Wheeler%20Emporium%20Lucknow&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-6",
+    "name": "Vanguard EV Logistics Hub",
+    "state": "Bihar",
+    "city": "Gaya",
+    "address": "Plot No. 85, Sector 7, Industrial Area, Gaya, Bihar - 110575",
+    "phone": "+91 98765 53766",
+    "email": "sales@vanguardevlogisticshub.com",
+    "brands": [
+      "YC Electric",
+      "Omega Seiki",
+      "Montra Electric"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Vanguard%20EV%20Logistics%20Hub%20Gaya&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-7",
+    "name": "Karan Automobile Solutions",
+    "state": "West Bengal",
+    "city": "Kolkata",
+    "address": "Plot No. 93, Sector 8, Industrial Area, Kolkata, West Bengal - 110690",
+    "phone": "+91 98765 53655",
+    "email": "sales@karanautomobilesolutions.com",
+    "brands": [
+      "Altigreen",
+      "Kinetic Green",
+      "Terra Motors"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Karan%20Automobile%20Solutions%20Kolkata&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-8",
+    "name": "Metro Commercials",
+    "state": "Gujarat",
+    "city": "Surat",
+    "address": "Plot No. 101, Sector 9, Industrial Area, Surat, Gujarat - 110805",
+    "phone": "+91 98765 53544",
+    "email": "sales@metrocommercials.com",
+    "brands": [
+      "Euler Motors",
+      "Lohia Auto",
+      "Mini Metro"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Metro%20Commercials%20Surat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-9",
+    "name": "Pioneer Cargo Motors",
+    "state": "Rajasthan",
+    "city": "Udaipur",
+    "address": "Plot No. 109, Sector 10, Industrial Area, Udaipur, Rajasthan - 110920",
+    "phone": "+91 98765 53433",
+    "email": "sales@pioneercargomotors.com",
+    "brands": [
+      "Omega Seiki",
+      "Saera Electric",
+      "Saarthi"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Pioneer%20Cargo%20Motors%20Udaipur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-10",
+    "name": "Narmada Green Wheels",
+    "state": "Madhya Pradesh",
+    "city": "Bhopal",
+    "address": "Plot No. 117, Sector 11, Industrial Area, Bhopal, Madhya Pradesh - 111035",
+    "phone": "+91 98765 53322",
+    "email": "sales@narmadagreenwheels.com",
+    "brands": [
+      "Kinetic Green",
+      "Montra Electric",
+      "City Life"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Narmada%20Green%20Wheels%20Bhopal&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-11",
+    "name": "Elite Passenger Rickshaw Point",
+    "state": "Punjab",
+    "city": "Amritsar",
+    "address": "Plot No. 125, Sector 12, Industrial Area, Amritsar, Punjab - 111150",
+    "phone": "+91 98765 53211",
+    "email": "sales@elitepassengerrickshawpoint.com",
+    "brands": [
+      "Lohia Auto",
+      "Terra Motors",
+      "Jezza Motors"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Elite%20Passenger%20Rickshaw%20Point%20Amritsar&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-12",
+    "name": "Saraswati E-Motors",
+    "state": "Haryana",
+    "city": "Panipat",
+    "address": "Plot No. 133, Sector 13, Industrial Area, Panipat, Haryana - 111265",
+    "phone": "+91 98765 53100",
+    "email": "sales@saraswatie-motors.com",
+    "brands": [
+      "Saera Electric",
+      "Mini Metro",
+      "Mahindra Electric"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Saraswati%20E-Motors%20Panipat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-13",
+    "name": "Jai Hind Auto Traders",
+    "state": "Andhra Pradesh",
+    "city": "Vijayawada",
+    "address": "Plot No. 141, Sector 14, Industrial Area, Vijayawada, Andhra Pradesh - 111380",
+    "phone": "+91 98765 52989",
+    "email": "sales@jaihindautotraders.com",
+    "brands": [
+      "Montra Electric",
+      "Saarthi",
+      "Kinetic"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Jai%20Hind%20Auto%20Traders%20Vijayawada&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-14",
+    "name": "United Logistics Wheels",
+    "state": "Telangana",
+    "city": "Warangal",
+    "address": "Plot No. 149, Sector 15, Industrial Area, Warangal, Telangana - 111495",
+    "phone": "+91 98765 52878",
+    "email": "sales@unitedlogisticswheels.com",
+    "brands": [
+      "Bajaj",
+      "Terra Motors",
+      "City Life"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=United%20Logistics%20Wheels%20Warangal&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-15",
+    "name": "Royal Three Wheeler Hub",
+    "state": "Kerala",
+    "city": "Kozhikode",
+    "address": "Plot No. 157, Sector 16, Industrial Area, Kozhikode, Kerala - 111610",
+    "phone": "+91 98765 52767",
+    "email": "sales@royalthreewheelerhub.com",
+    "brands": [
+      "Piaggio",
+      "Mini Metro",
+      "Jezza Motors"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Royal%20Three%20Wheeler%20Hub%20Kozhikode&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-16",
+    "name": "Krishna Commercial Vehicles",
+    "state": "Delhi",
+    "city": "New Delhi",
+    "address": "Plot No. 165, Sector 17, Industrial Area, New Delhi, Delhi - 111725",
+    "phone": "+91 98765 52656",
+    "email": "sales@krishnacommercialvehicles.com",
+    "brands": [
+      "Mahindra",
+      "Saarthi",
+      "Mahindra Electric"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Krishna%20Commercial%20Vehicles%20New%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-17",
+    "name": "Kolkata E-Rickshaw Point",
+    "state": "Maharashtra",
+    "city": "Pune",
+    "address": "Plot No. 173, Sector 18, Industrial Area, Pune, Maharashtra - 111840",
+    "phone": "+91 98765 52545",
+    "email": "sales@kolkatae-rickshawpoint.com",
+    "brands": [
+      "TVS",
+      "City Life",
+      "Kinetic"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Kolkata%20E-Rickshaw%20Point%20Pune&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-18",
+    "name": "Chola Green Transports",
+    "state": "Karnataka",
+    "city": "Hubli",
+    "address": "Plot No. 181, Sector 19, Industrial Area, Hubli, Karnataka - 111955",
+    "phone": "+91 98765 52434",
+    "email": "sales@cholagreentransports.com",
+    "brands": [
+      "Bajaj",
+      "Atul Auto",
+      "Jezza Motors"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Chola%20Green%20Transports%20Hubli&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-19",
+    "name": "Deccan Motors Group",
+    "state": "Tamil Nadu",
+    "city": "Chennai",
+    "address": "Plot No. 189, Sector 20, Industrial Area, Chennai, Tamil Nadu - 112070",
+    "phone": "+91 98765 52323",
+    "email": "sales@deccanmotorsgroup.com",
+    "brands": [
+      "Piaggio",
+      "YC Electric",
+      "Mahindra Electric"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Deccan%20Motors%20Group%20Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-20",
+    "name": "Northern Auto Agency",
+    "state": "Uttar Pradesh",
+    "city": "Varanasi",
+    "address": "Plot No. 197, Sector 21, Industrial Area, Varanasi, Uttar Pradesh - 112185",
+    "phone": "+91 98765 52212",
+    "email": "sales@northernautoagency.com",
+    "brands": [
+      "Mahindra",
+      "Altigreen",
+      "Kinetic"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Northern%20Auto%20Agency%20Varanasi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-21",
+    "name": "Sri Vinayaka Auto Agencies",
+    "state": "Bihar",
+    "city": "Gaya",
+    "address": "Plot No. 205, Sector 22, Industrial Area, Gaya, Bihar - 112300",
+    "phone": "+91 98765 52101",
+    "email": "sales@srivinayakaautoagencies.com",
+    "brands": [
+      "Bajaj",
+      "TVS",
+      "Euler Motors"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Sri%20Vinayaka%20Auto%20Agencies%20Gaya&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-22",
+    "name": "Shree Balaji Commercial Motors",
+    "state": "West Bengal",
+    "city": "Kolkata",
+    "address": "Plot No. 213, Sector 23, Industrial Area, Kolkata, West Bengal - 112415",
+    "phone": "+91 98765 51990",
+    "email": "sales@shreebalajicommercialmotors.com",
+    "brands": [
+      "Piaggio",
+      "Atul Auto",
+      "Omega Seiki"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Shree%20Balaji%20Commercial%20Motors%20Kolkata&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-23",
+    "name": "Apex Auto Distributors",
+    "state": "Gujarat",
+    "city": "Surat",
+    "address": "Plot No. 221, Sector 24, Industrial Area, Surat, Gujarat - 112530",
+    "phone": "+91 98765 51879",
+    "email": "sales@apexautodistributors.com",
+    "brands": [
+      "Mahindra",
+      "YC Electric",
+      "Kinetic Green"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Apex%20Auto%20Distributors%20Surat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  {
+    "id": "dealer-24",
+    "name": "Sai Ram Motors",
+    "state": "Rajasthan",
+    "city": "Udaipur",
+    "address": "Plot No. 229, Sector 25, Industrial Area, Udaipur, Rajasthan - 112645",
+    "phone": "+91 98765 51768",
+    "email": "sales@sairammotors.com",
+    "brands": [
+      "TVS",
+      "Altigreen",
+      "Lohia Auto"
+    ],
+    "services": [
+      "Sales",
+      "Service",
+      "Spare Parts",
+      "Battery Swapping",
+      "Finance Assistance"
+    ],
+    "mapUrl": "https://maps.google.com/maps?q=Sai%20Ram%20Motors%20Udaipur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  }
+]

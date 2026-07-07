@@ -1,0 +1,202 @@
+[
+  {
+    "id": "bajaj",
+    "name": "Bajaj",
+    "logo": "/images/brands/bajaj.png",
+    "description": "India's pioneer in three-wheelers, renowned for reliability and the iconic RE series.",
+    "marketShare": "35%",
+    "rating": 4.8,
+    "established": 1945,
+    "origin": "Pune, India"
+  },
+  {
+    "id": "piaggio",
+    "name": "Piaggio",
+    "logo": "/images/brands/piaggio.png",
+    "description": "Italian heritage meets Indian transport. Famous for the powerful Ape cargo and passenger series.",
+    "marketShare": "28%",
+    "rating": 4.7,
+    "established": 1999,
+    "origin": "Baramati, India"
+  },
+  {
+    "id": "mahindra",
+    "name": "Mahindra",
+    "logo": "/images/brands/mahindra.png",
+    "description": "Leading the EV revolution in three-wheelers with the Treo range and robust Alfa diesel series.",
+    "marketShare": "20%",
+    "rating": 4.7,
+    "established": 1945,
+    "origin": "Mumbai, India"
+  },
+  {
+    "id": "tvs",
+    "name": "TVS",
+    "logo": "/images/brands/tvs.png",
+    "description": "Renowned for the TVS King series, offering superior comfort, durability, and mileage.",
+    "marketShare": "8%",
+    "rating": 4.5,
+    "established": 1978,
+    "origin": "Hosur, India"
+  },
+  {
+    "id": "atul-auto",
+    "name": "Atul Auto",
+    "logo": "/images/brands/atul.png",
+    "description": "A reliable name in cargo and passenger auto-rickshaws, offering robust metal bodies and high payloads.",
+    "marketShare": "5%",
+    "rating": 4.4,
+    "established": 1986,
+    "origin": "Rajkot, India"
+  },
+  {
+    "id": "yc-electric",
+    "name": "YC Electric",
+    "logo": "/images/brands/yc.png",
+    "description": "One of India's largest selling electric rickshaw brands, highly popular in Northern India.",
+    "marketShare": "2%",
+    "rating": 4.3,
+    "established": 2014,
+    "origin": "Delhi, India"
+  },
+  {
+    "id": "altigreen",
+    "name": "Altigreen",
+    "logo": "/images/brands/altigreen.png",
+    "description": "Pioneers in high-performance electric cargo three-wheelers built for heavy utility.",
+    "marketShare": "1%",
+    "rating": 4.6,
+    "established": 2013,
+    "origin": "Bengaluru, India"
+  },
+  {
+    "id": "euler-motors",
+    "name": "Euler Motors",
+    "logo": "/images/brands/euler.png",
+    "description": "Makers of Euler HiLoad EV, India's highest payload-carrying cargo electric three-wheeler.",
+    "marketShare": "1%",
+    "rating": 4.8,
+    "established": 2018,
+    "origin": "New Delhi, India"
+  },
+  {
+    "id": "omega-seiki",
+    "name": "Omega Seiki",
+    "logo": "/images/brands/omega.png",
+    "description": "Rage series cargo and passenger EVs designed for smart city logistics.",
+    "marketShare": "0.8%",
+    "rating": 4.3,
+    "established": 2018,
+    "origin": "Faridabad, India"
+  },
+  {
+    "id": "kinetic-green",
+    "name": "Kinetic Green",
+    "logo": "/images/brands/kinetic.png",
+    "description": "Pioneering green mobility with passenger and cargo e-rickshaws and e-autos.",
+    "marketShare": "0.7%",
+    "rating": 4.2,
+    "established": 2016,
+    "origin": "Pune, India"
+  },
+  {
+    "id": "lohia",
+    "name": "Lohia Auto",
+    "logo": "/images/brands/lohia.png",
+    "description": "Reliable range of Humrahi passenger e-rickshaws and Narain cargo vehicles.",
+    "marketShare": "0.5%",
+    "rating": 4.1,
+    "established": 2008,
+    "origin": "Noida, India"
+  },
+  {
+    "id": "saera",
+    "name": "Saera Electric",
+    "logo": "/images/brands/saera.png",
+    "description": "Makers of Mayuri e-rickshaws, providing clean and affordable passenger transport.",
+    "marketShare": "0.5%",
+    "rating": 4.2,
+    "established": 2011,
+    "origin": "Gurugram, India"
+  },
+  {
+    "id": "montra-electric",
+    "name": "Montra Electric",
+    "logo": "/images/brands/montra.png",
+    "description": "A brand by Tube Investments (Murugappa Group) redefining premium electric three-wheelers.",
+    "marketShare": "0.5%",
+    "rating": 4.7,
+    "established": 2022,
+    "origin": "Chennai, India"
+  },
+  {
+    "id": "terra-motors",
+    "name": "Terra Motors",
+    "logo": "/images/brands/terra.png",
+    "description": "Japanese EV brand focusing on quality design and long-lasting battery packs.",
+    "marketShare": "0.4%",
+    "rating": 4.2,
+    "established": 2010,
+    "origin": "Tokyo / Kolkata"
+  },
+  {
+    "id": "mini-metro",
+    "name": "Mini Metro",
+    "logo": "/images/brands/minimetro.png",
+    "description": "Cost-effective cargo loaders and e-rickshaws widely used in tier-2 and tier-3 cities.",
+    "marketShare": "0.4%",
+    "rating": 4,
+    "established": 2014,
+    "origin": "Meerut, India"
+  },
+  {
+    "id": "saarthi",
+    "name": "Saarthi",
+    "logo": "/images/brands/saarthi.png",
+    "description": "Sturdy passenger and loader e-rickshaws by Yatri Auto India.",
+    "marketShare": "0.3%",
+    "rating": 4.1,
+    "established": 2015,
+    "origin": "Gurugram, India"
+  },
+  {
+    "id": "city-life",
+    "name": "City Life",
+    "logo": "/images/brands/citylife.png",
+    "description": "Durable and highly customizable passenger electric rickshaws.",
+    "marketShare": "0.3%",
+    "rating": 4,
+    "established": 2013,
+    "origin": "Kolkata, India"
+  },
+  {
+    "id": "jezza",
+    "name": "Jezza Motors",
+    "logo": "/images/brands/jezza.png",
+    "description": "Offering high-efficiency battery management systems and durable body structures.",
+    "marketShare": "0.2%",
+    "rating": 4.2,
+    "established": 2014,
+    "origin": "Kolkata, India"
+  },
+  {
+    "id": "mahindra-electric",
+    "name": "Mahindra Electric",
+    "logo": "/images/brands/mahindra-ev.png",
+    "description": "Dedicated electric vehicle wing of Mahindra & Mahindra.",
+    "marketShare": "18%",
+    "rating": 4.8,
+    "established": 2010,
+    "origin": "Bengaluru, India"
+  },
+  {
+    "id": "kinetic",
+    "name": "Kinetic",
+    "logo": "/images/brands/kinetic-old.png",
+    "description": "Legendary Indian brand with modern green solutions for public transport.",
+    "marketShare": "0.5%",
+    "rating": 4.1,
+    "established": 1972,
+    "origin": "Pune, India"
+  }
+]

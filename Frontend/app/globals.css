@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C2410C;
+  --color-primary-dark: #9A3412;
+  --color-primary-light: #FFEDD5;
+  --color-secondary: #374151;
+  --color-accent: #2563EB;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --color-brand-dark: #111827;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-blue: #2563EB;
+  --color-brand-green: #16A34A;
+  --color-brand-border: #E5E7EB;
+  
+  --font-sans: var(--font-outfit), var(--font-inter), sans-serif;
+  --font-mono: monospace;
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #111827;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-dark);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Custom transitions and helper classes */
+.hover-scale {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-scale:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -5px rgba(17, 24, 39, 0.1), 0 8px 8px -6px rgba(17, 24, 39, 0.05);
+}
+
+.custom-shadow {
+  box-shadow: 0 4px 6px -1px rgba(17, 24, 39, 0.05), 0 2px 4px -1px rgba(17, 24, 39, 0.03);
+}
+
+.custom-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(17, 24, 39, 0.05), 0 4px 6px -2px rgba(17, 24, 39, 0.03);
+}
+
+/* Glassmorphism utility */
+.glass-nav {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hide default input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Custom Swiper Styles Override */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #C2410C !important;
+}
+.swiper-pagination-bullet-active {
+  background: #C2410C !important;
+}
