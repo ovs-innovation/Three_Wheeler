@@ -6,14 +6,37 @@ import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import VehicleCard from '@/components/VehicleCard/VehicleCard';
 import { useApp } from '@/context/AppContext';
-import vehiclesData from '@/data/vehicles.json';
-import brandsData from '@/data/brands.json';
+import staticVehicles from '@/data/vehicles.json';
+import staticBrands from '@/data/brands.json';
 import { Filter, SlidersHorizontal, RefreshCcw, Search, Grid, List, AlertCircle } from 'lucide-react';
 
 function VehiclesCatalogContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { wishlist } = useApp();
+
+  const [liveVehicles, setLiveVehicles] = useState(staticVehicles);
+  const [liveBrands, setLiveBrands] = useState(staticBrands);
+
+  useEffect(() => {
+    const fetchLiveCatalog = async () => {
+      try {
+        const [resVehicles, resBrands] = await Promise.all([
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles?limit=1000`).then(r => r.json()),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`).then(r => r.json())
+        ]);
+        if (resVehicles.success && resVehicles.data?.vehicles) {
+          setLiveVehicles(resVehicles.data.vehicles);
+        }
+        if (resBrands.success && resBrands.data) {
+          setLiveBrands(resBrands.data);
+        }
+      } catch (err) {
+        console.error('Failed to sync live catalog data, using static files:', err);
+      }
+    };
+    fetchLiveCatalog();
+  }, []);
 
   // Search/Filter parameters from URL
   const queryParam = searchParams.get('q') || '';
@@ -50,7 +73,7 @@ function VehiclesCatalogContent() {
   }, [queryParam, fuelParam, brandParam, categoryParam, maxPriceParam]);
 
   // Brand and fuel list data
-  const brandsList = brandsData;
+  const brandsList = liveBrands;
   const fuelsList = ['CNG', 'LPG', 'Electric', 'Diesel', 'Petrol'];
 
   // Handle Checkbox Toggles
@@ -80,6 +103,7 @@ function VehiclesCatalogContent() {
   };
 
   // Filter & Sort Logic
+  const vehiclesData = liveVehicles;
   const filteredVehicles = vehiclesData.filter((v) => {
     // 1. Wishlist Only Filter
     if (filterParam === 'wishlist' && !wishlist.includes(v.id)) {

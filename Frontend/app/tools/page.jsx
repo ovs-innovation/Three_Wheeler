@@ -113,7 +113,7 @@ export default function ToolsSuitePage() {
             <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>Tools & Calculators</span>
           </div>
 
-          <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">AutoJunction Utilities & Calculators Suite</h1>
+          <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">Three Wheeler Utilities & Calculators Suite</h1>
           <p className="text-xs text-gray-500 mb-8 max-w-2xl">
             Evaluate your commercial auto rickshaw costs, loan EMIs, EV operation cost savings, and choose the correct fleet size for cargo deliveries.
           </p>

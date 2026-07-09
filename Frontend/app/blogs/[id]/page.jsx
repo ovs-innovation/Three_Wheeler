@@ -13,12 +13,26 @@ export default function BlogDetailsPage() {
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    if (id) {
+    const fetchBlog = async () => {
+      if (!id) return;
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}`);
+        const result = await response.json();
+        if (result.success && result.data) {
+          setBlog(result.data);
+          return;
+        }
+      } catch (err) {
+        console.error('Failed to fetch live blog article, trying fallback static file:', err);
+      }
+
+      // Fallback
       const match = blogsData.find(b => b.id === id);
       if (match) {
         setBlog(match);
       }
-    }
+    };
+    fetchBlog();
   }, [id]);
 
   if (!blog) {
@@ -51,10 +65,10 @@ export default function BlogDetailsPage() {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "AutoJunction",
+      "name": "Three Wheeler",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.autojunction.in/images/logo.png"
+        "url": "https://www.threewheeler.in/images/logo.png"
       }
     }
   };

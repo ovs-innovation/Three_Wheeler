@@ -1,9 +1,9 @@
 'use client';
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import blogsData from '@/data/blogs.json';
+import staticBlogs from '@/data/blogs.json';
 import { BookOpen, Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -15,6 +15,24 @@ function BlogsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get('category') || 'All Articles';
+
+  const [liveBlogs, setLiveBlogs] = useState(staticBlogs);
+
+  useEffect(() => {
+    const fetchLiveBlogs = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`).then(r => r.json());
+        if (res.success && res.data) {
+          setLiveBlogs(res.data);
+        }
+      } catch (err) {
+        console.error('Failed to sync live blog data:', err);
+      }
+    };
+    fetchLiveBlogs();
+  }, []);
+
+  const blogsData = liveBlogs;
 
   const handleCategoryClick = (category) => {
     if (category === 'All Articles') {
@@ -108,7 +126,7 @@ function BlogsContent() {
               className="bg-white border border-brand-border rounded-xl overflow-hidden shadow-sm flex flex-col justify-between hover-scale custom-shadow"
             >
               <div className="h-44 bg-gray-50 border-b flex items-center justify-center font-black text-xl text-gray-300">
-                AUTOJUNCTION BLOG
+                THREE WHEELER BLOG
               </div>
               
               <div className="p-5 flex-grow flex flex-col justify-between">

@@ -17,7 +17,7 @@ import {
 export default function VehicleDetailsPage() {
   const router = useRouter();
   const { id } = useParams();
-  const { wishlist, toggleWishlist, compareList, addToCompare, removeFromCompare, location } = useApp();
+  const { wishlist, toggleWishlist, compareList, addToCompare, removeFromCompare, location, openEnquiryModal } = useApp();
 
   const [vehicle, setVehicle] = useState(null);
   const [activeTab, setActiveTab] = useState('specs'); // 'specs' | 'features' | 'reviews'
@@ -30,12 +30,26 @@ export default function VehicleDetailsPage() {
   const [interestRate, setInterestRate] = useState(9.5); // 9.5%
 
   useEffect(() => {
-    if (id) {
+    const fetchVehicle = async () => {
+      if (!id) return;
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${id}`);
+        const result = await response.json();
+        if (result.success && result.data) {
+          setVehicle(result.data);
+          return;
+        }
+      } catch (err) {
+        console.error('Failed to fetch live vehicle specs, trying fallback static file:', err);
+      }
+
+      // Fallback
       const match = vehiclesData.find(v => v.id === id);
       if (match) {
         setVehicle(match);
       }
-    }
+    };
+    fetchVehicle();
   }, [id]);
 
   if (!vehicle) {
@@ -75,7 +89,7 @@ export default function VehicleDetailsPage() {
     if (navigator.share) {
       navigator.share({
         title: vehicle.name,
-        text: `Check out ${vehicle.name} price and specifications on AutoJunction!`,
+        text: `Check out ${vehicle.name} price and specifications on Three Wheeler!`,
         url: window.location.href,
       }).catch(err => console.log(err));
     } else {
@@ -521,12 +535,28 @@ export default function VehicleDetailsPage() {
                   <span className="text-lg text-primary">₹{estimatedOnRoadPrice.toLocaleString('en-IN')}*</span>
                 </div>
 
-                <button 
-                  onClick={() => router.push(`/dealers?state=${location}`)}
-                  className="w-full bg-primary hover:bg-primary-dark text-white font-extrabold text-xs py-3 rounded-lg text-center transition-colors shadow-sm"
-                >
-                  Request Exact Dealer Quote
-                </button>
+                <div className="space-y-2">
+                  <button 
+                    onClick={() => openEnquiryModal(vehicle.name, 'Get Best Offer')}
+                    className="w-full bg-primary hover:bg-orange-600 text-white font-extrabold text-xs py-3 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    Get Best Quote
+                  </button>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button 
+                      onClick={() => openEnquiryModal(vehicle.name, 'Dealer Enquiry')}
+                      className="py-2.5 border border-brand-border hover:bg-gray-50 text-brand-dark font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                    >
+                      Enquire Now
+                    </button>
+                    <button 
+                      onClick={() => openEnquiryModal(vehicle.name, 'Book Test Ride')}
+                      className="py-2.5 border border-brand-border hover:bg-gray-50 text-brand-dark font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                    >
+                      Book Test Ride
+                    </button>
+                  </div>
+                </div>
                 <span className="text-[9.5px] text-gray-400 block mt-1.5 text-center">*Indicative price. Final RTO tax rates and insurance premiums vary by city municipal councils.</span>
               </div>
 

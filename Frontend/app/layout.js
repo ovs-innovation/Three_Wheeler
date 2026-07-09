@@ -1,5 +1,8 @@
 import { Outfit, Inter } from "next/font/google";
 import { AppProvider } from "@/context/AppContext";
+import { Toaster } from "react-hot-toast";
+import AuthModal from "@/components/AuthModal/AuthModal";
+import EnquiryModal from "@/components/EnquiryModal/EnquiryModal";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -17,22 +20,22 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "AutoJunction - India's Trusted Three Wheeler Marketplace",
-  description: "AutoJunction is India's largest marketplace and information portal for Three Wheelers. Find passenger auto rickshaws, cargo loaders, electric rickshaws, LPG/CNG autos, diesel mini-loaders. Compare specs, prices, mileage, payload and find dealers.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.threewheeler.in'),
+  title: "Three Wheeler - India's Trusted Three Wheeler Marketplace",
+  description: "Three Wheeler is India's largest marketplace and information portal for Three Wheelers. Find passenger auto rickshaws, cargo loaders, electric rickshaws, LPG/CNG autos, diesel mini-loaders. Compare specs, prices, mileage, payload and find dealers.",
   keywords: "auto rickshaw, cargo three wheeler, electric auto, electric cargo, CNG auto, LPG auto, diesel loader, TVS King, Bajaj RE, Piaggio Ape, Mahindra Treo, Euler HiLoad, Altigreen, commercial vehicle, three wheeler price, auto comparison, commercial loan",
-  authors: [{ name: "AutoJunction Commercial Team" }],
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
+  authors: [{ name: "Three Wheeler Commercial Team" }],
   openGraph: {
-    title: "AutoJunction - India's Largest Three Wheeler Platform",
+    title: "Three Wheeler - India's Largest Three Wheeler Platform",
     description: "Compare prices, mileage, payload capacity, and battery ranges for passenger and cargo three-wheelers in India. Find local dealers and check finance offers.",
-    url: "https://www.autojunction.in",
-    siteName: "AutoJunction",
+    url: "https://www.threewheeler.in",
+    siteName: "Three Wheeler",
     images: [
       {
         url: "/images/hero_banner.png",
         width: 1200,
         height: 630,
-        alt: "AutoJunction Three Wheeler Platform",
+        alt: "Three Wheeler Three Wheeler Platform",
       },
     ],
     locale: "en_IN",
@@ -40,10 +43,16 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AutoJunction - India's Trusted Three Wheeler Portal",
+    title: "Three Wheeler - India's Trusted Three Wheeler Portal",
     description: "Find your next commercial three-wheeler. Compare brands, browse electric, CNG, and diesel passenger or cargo autos.",
     images: ["/images/hero_banner.png"],
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5
 };
 
 export default function RootLayout({ children }) {
@@ -54,6 +63,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased min-h-screen bg-brand-bg text-brand-dark flex flex-col`}>
         <AppProvider>
+          <Toaster position="top-right" />
+          <AuthModal />
+          <EnquiryModal />
           {children}
         </AppProvider>
       </body>

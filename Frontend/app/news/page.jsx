@@ -1,9 +1,9 @@
 'use client';
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import newsData from '@/data/news.json';
+import staticNews from '@/data/news.json';
 import { Newspaper, Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -15,6 +15,24 @@ function NewsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get('category') || 'All News';
+
+  const [liveNews, setLiveNews] = useState(staticNews);
+
+  useEffect(() => {
+    const fetchLiveNews = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`).then(r => r.json());
+        if (res.success && res.data) {
+          setLiveNews(res.data);
+        }
+      } catch (err) {
+        console.error('Failed to sync live news data:', err);
+      }
+    };
+    fetchLiveNews();
+  }, []);
+
+  const newsData = liveNews;
 
   const handleCategoryClick = (category) => {
     if (category === 'All News') {
@@ -109,7 +127,7 @@ function NewsContent() {
               className="bg-white border border-brand-border rounded-xl overflow-hidden shadow-sm flex flex-col justify-between hover-scale custom-shadow"
             >
               <div className="h-44 bg-gray-50 border-b flex items-center justify-center font-black text-xl text-gray-300">
-                AUTOJUNCTION NEWS
+                THREE WHEELER NEWS
               </div>
               
               <div className="p-5 flex-grow flex flex-col justify-between">

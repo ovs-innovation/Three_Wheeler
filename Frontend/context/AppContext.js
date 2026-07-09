@@ -9,12 +9,17 @@ export function AppProvider({ children }) {
   const [compareList, setCompareList] = useState([]);
   const [searchHistory, setSearchHistory] = useState([]);
 
+  // 🚀 User Auth States
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   // Load state from localStorage on client side
   useEffect(() => {
     const savedWishlist = localStorage.getItem('aj_wishlist');
     const savedLocation = localStorage.getItem('aj_location');
     const savedCompare = localStorage.getItem('aj_compare');
     const savedSearch = localStorage.getItem('aj_search');
+    const savedUser = localStorage.getItem('aj_user'); // 🚀 Pull user session on start
 
     if (savedWishlist) {
       try {
@@ -40,9 +45,17 @@ export function AppProvider({ children }) {
         console.error(e);
       }
     }
+    if (savedUser) {
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (e) {
+        console.error("Failed to parse user session", e);
+      }
+    }
+    setLoading(false); // Auth hydration check finished
   }, []);
 
-  const toggleWishlist = (vehicleId) => {
+  const toggleWishlist = async (vehicleId) => {
     setWishlist((prev) => {
       const updated = prev.includes(vehicleId)
         ? prev.filter((id) => id !== vehicleId)
@@ -50,6 +63,21 @@ export function AppProvider({ children }) {
       localStorage.setItem('aj_wishlist', JSON.stringify(updated));
       return updated;
     });
+
+    if (user && user.token) {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/wishlist`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`
+          },
+          body: JSON.stringify({ vehicleId })
+        });
+      } catch (err) {
+        console.error('Failed to sync wishlist with backend:', err);
+      }
+    }
   };
 
   const updateLocation = (loc) => {
@@ -96,6 +124,35 @@ export function AppProvider({ children }) {
     localStorage.removeItem('aj_search');
   };
 
+  // 🚀 User Authentication Route Actions
+  const loginUser = (userData) => {
+    setUser(userData);
+    localStorage.setItem('aj_user', JSON.stringify(userData));
+    if (userData.wishlist) {
+      setWishlist(userData.wishlist);
+      localStorage.setItem('aj_wishlist', JSON.stringify(userData.wishlist));
+    }
+  };
+
+  const logoutUser = () => {
+    setUser(null);
+    localStorage.removeItem('aj_user');
+    localStorage.removeItem('aj_wishlist');
+  };
+
+  // 🚀 User Auth Modal States
+  const [authModal, setAuthModal] = useState({ isOpen: false, tab: 'login' });
+
+  const openLoginModal = () => setAuthModal({ isOpen: true, tab: 'login' });
+  const openRegisterModal = () => setAuthModal({ isOpen: true, tab: 'register' });
+  const closeAuthModal = () => setAuthModal({ isOpen: false, tab: 'login' });
+
+  // 🚀 Enquiry Modal States
+  const [enquiryModal, setEnquiryModal] = useState({ isOpen: false, vehicleName: '', type: 'Dealer Enquiry' });
+
+  const openEnquiryModal = (vehicleName = '', type = 'Dealer Enquiry') => setEnquiryModal({ isOpen: true, vehicleName, type });
+  const closeEnquiryModal = () => setEnquiryModal({ isOpen: false, vehicleName: '', type: 'Dealer Enquiry' });
+
   return (
     <AppContext.Provider
       value={{
@@ -110,6 +167,19 @@ export function AppProvider({ children }) {
         searchHistory,
         addSearchTerm,
         clearSearchHistory,
+        user,        // 🚀 Exposed state
+        loading,     // 🚀 Exposed loading flag
+        loginUser,   // 🚀 Exposed login wrapper
+        logoutUser,  // 🚀 Exposed logout wrapper
+        authModal,
+        openLoginModal,
+        openRegisterModal,
+        closeAuthModal,
+        setAuthModal,
+        enquiryModal,
+        openEnquiryModal,
+        closeEnquiryModal,
+        setEnquiryModal
       }}
     >
       {children}

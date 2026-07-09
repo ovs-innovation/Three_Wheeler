@@ -1,14 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import VehicleCard from '@/components/VehicleCard/VehicleCard';
-import vehiclesData from '@/data/vehicles.json';
-import brandsData from '@/data/brands.json';
-import newsData from '@/data/news.json';
-import blogsData from '@/data/blogs.json';
+import staticVehicles from '@/data/vehicles.json';
+import staticBrands from '@/data/brands.json';
+import staticNews from '@/data/news.json';
+import staticBlogs from '@/data/blogs.json';
 import faqsData from '@/data/faqs.json';
 import { 
   Search, Shield, Tag, Compass, Award, Building2, 
@@ -34,10 +34,50 @@ export default function HomePage() {
 
   // Dealer Quick Search
   const [dealerState, setDealerState] = useState('');
+
+  // Live Data States
+  const [liveVehicles, setLiveVehicles] = useState(staticVehicles);
+  const [liveBrands, setLiveBrands] = useState(staticBrands);
+  const [liveNews, setLiveNews] = useState(staticNews);
+  const [liveBlogs, setLiveBlogs] = useState(staticBlogs);
+
+  useEffect(() => {
+    const fetchLiveHomeData = async () => {
+      try {
+        const [resVehicles, resBrands, resNews, resBlogs] = await Promise.all([
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles?limit=24`).then(r => r.json()),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`).then(r => r.json()),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`).then(r => r.json()),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`).then(r => r.json())
+        ]);
+
+        if (resVehicles.success && resVehicles.data?.vehicles) {
+          setLiveVehicles(resVehicles.data.vehicles);
+        }
+        if (resBrands.success && resBrands.data) {
+          setLiveBrands(resBrands.data);
+        }
+        if (resNews.success && resNews.data) {
+          setLiveNews(resNews.data);
+        }
+        if (resBlogs.success && resBlogs.data) {
+          setLiveBlogs(resBlogs.data);
+        }
+      } catch (err) {
+        console.error('Failed to sync live home data, using static files:', err);
+      }
+    };
+    fetchLiveHomeData();
+  }, []);
+
+  const vehiclesData = liveVehicles;
+  const brandsData = liveBrands;
+  const newsData = liveNews;
+  const blogsData = liveBlogs;
   
   // Filter popular categories
-  const popularPassenger = vehiclesData.filter(v => v.category.toLowerCase().includes('passenger') || v.category.toLowerCase().includes('auto')).slice(0, 4);
-  const popularCargo = vehiclesData.filter(v => v.category.toLowerCase().includes('cargo') || v.category.toLowerCase().includes('loader') || v.category.toLowerCase().includes('pickup')).slice(0, 4);
+  const popularPassenger = vehiclesData.filter(v => v.category.toLowerCase().includes('passenger') || v.category.toLowerCase().includes('auto') || (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'passenger')).slice(0, 4);
+  const popularCargo = vehiclesData.filter(v => v.category.toLowerCase().includes('cargo') || v.category.toLowerCase().includes('loader') || v.category.toLowerCase().includes('pickup') || (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'cargo')).slice(0, 4);
   const electricModels = vehiclesData.filter(v => v.fuelType === 'Electric').slice(0, 4);
 
   // Filter latest and news
@@ -409,7 +449,7 @@ export default function HomePage() {
               <span className="bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">Commercial Credit Facility</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-white">Need Financing For Your Auto? Get Loans up to 90%</h2>
               <p className="text-gray-300 text-xs md:text-sm leading-relaxed max-w-xl font-medium">
-                AutoJunction works with India's largest commercial lenders (SBI, Cholamandalam, Shriram Transport, HDFC) to provide customized loan interest rates starting as low as <span className="text-primary font-bold text-base">8.9% ROI*</span>. We also assist in securing government EMPS / FAME EV subsidies.
+                Three Wheeler works with India's largest commercial lenders (SBI, Cholamandalam, Shriram Transport, HDFC) to provide customized loan interest rates starting as low as <span className="text-primary font-bold text-base">8.9% ROI*</span>. We also assist in securing government EMPS / FAME EV subsidies.
               </p>
 
               <div className="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6 text-center lg:text-left">
@@ -636,66 +676,6 @@ export default function HomePage() {
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* APP DOWNLOAD BANNER PROMO */}
-        <section className="py-12 bg-gradient-to-r from-gray-900 to-brand-dark text-white border-t border-gray-800">
-          <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-8 space-y-4">
-              <span className="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">AutoJunction Mobile</span>
-              <h2 className="text-2xl md:text-3xl font-black">Download AutoJunction Commercial App</h2>
-              <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-lg">
-                Compare models on the go, check live CNG prices in your area, calculate EMIs offline, and chat directly with authorized dealers. Safe, fast, and completely free.
-              </p>
-              
-              <div className="flex space-x-3 pt-2">
-                <div className="bg-black border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5 flex items-center space-x-2 cursor-pointer transition-all">
-                  <svg viewBox="0 0 384 512" className="w-5 h-5 fill-white flex-shrink-0">
-                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-22.9-84.5-22.4-45.3.6-87.3 26.2-110.3 66.3-47.7 83-12.2 205.8 33.4 271.9 22.3 32.3 48.7 68.2 82.4 67-33.6-1.2-46.2-22.4-85.7-22.4-39.7 0-53.1 22.4-85.3 22.4 34.3 1.2 59.4-32.3 81.7-65.1 25.8-37.3 36.7-73.6 37-75.7-.7-.3-72.3-27.8-72.9-110.6zM290.7 83.4c21.8-26.2 35.5-61.7 30.6-97.4-30.2 1.2-68.7 20-90.3 45.1-19 22.1-35.5 58.3-30.5 93.1 33.6 2.6 70-17 90.2-40.8z"/>
-                  </svg>
-                  <div className="flex flex-col text-left">
-                    <span className="text-[8px] text-gray-400 uppercase leading-none">Download on the</span>
-                    <span className="text-xs text-white font-bold leading-none mt-1">App Store</span>
-                  </div>
-                </div>
-                <div className="bg-black border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5 flex items-center space-x-2 cursor-pointer transition-all">
-                  <svg viewBox="0 0 512 512" className="w-5 h-5 fill-white flex-shrink-0">
-                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58 33.2-60.1-60.1 118.1 26.9zM385.4 337.8L104.6 499l220.7-221.3 60.1 60.1z"/>
-                  </svg>
-                  <div className="flex flex-col text-left">
-                    <span className="text-[8px] text-gray-400 uppercase leading-none">Get it on</span>
-                    <span className="text-xs text-white font-bold leading-none mt-1">Google Play</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="md:col-span-4 flex justify-center">
-              {/* Styliized CSS smartphone representation */}
-              <div className="w-40 h-80 bg-gray-800 rounded-3xl border-4 border-gray-700 shadow-2xl relative overflow-hidden flex flex-col p-2">
-                <div className="w-20 h-4 bg-gray-700 rounded-full mx-auto mb-2" /> {/* Notch */}
-                <div className="flex-grow bg-brand-dark rounded-xl p-2 flex flex-col justify-between text-left relative">
-                  <div>
-                    <span className="text-[8px] text-primary font-bold uppercase tracking-wider">AutoJunction</span>
-                    <h5 className="text-[10px] font-black text-white leading-tight mt-0.5">India's largest 3W marketplace</h5>
-                    
-                    {/* Small blueprint graphic inside phone */}
-                    <div className="border border-gray-800 bg-gray-900 rounded p-1 mt-2 text-[6px] text-gray-400">
-                      <div className="font-bold text-white text-[7px]">Bajaj RE CNG</div>
-                      <div className="flex justify-between mt-1">
-                        <span>EMI: ₹4,500/mo</span>
-                        <span className="text-brand-green font-bold">CNG</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-primary text-center text-[8px] font-bold py-1.5 rounded text-white">
-                    Download Android App
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

@@ -13,12 +13,26 @@ export default function NewsDetailsPage() {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
-    if (id) {
+    const fetchArticle = async () => {
+      if (!id) return;
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news/${id}`);
+        const result = await response.json();
+        if (result.success && result.data) {
+          setArticle(result.data);
+          return;
+        }
+      } catch (err) {
+        console.error('Failed to fetch live news article, trying fallback static file:', err);
+      }
+
+      // Fallback
       const match = newsData.find(n => n.id === id);
       if (match) {
         setArticle(match);
       }
-    }
+    };
+    fetchArticle();
   }, [id]);
 
   if (!article) {
@@ -51,10 +65,10 @@ export default function NewsDetailsPage() {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "AutoJunction",
+      "name": "Three Wheeler",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.autojunction.in/images/logo.png"
+        "url": "https://www.threewheeler.in/images/logo.png"
       }
     }
   };

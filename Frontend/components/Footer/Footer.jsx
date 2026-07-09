@@ -7,9 +7,26 @@ export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
     if (email.trim()) {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enquiries`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: 'Newsletter Subscriber',
+            email: email,
+            phone: '9999999999',
+            city: 'Delhi/NCR',
+            vehicleName: 'Fleet Insights Newsletter',
+            type: 'Request Callback',
+            message: `Subscriber logged for newsletter alerts.`
+          })
+        });
+      } catch (err) {
+        console.error('Failed to log newsletter subscriber callback:', err);
+      }
       setSubscribed(true);
       setEmail('');
       setTimeout(() => setSubscribed(false), 5000);
@@ -52,14 +69,14 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-4 lg:col-span-2 space-y-4">
           <Link href="/" className="flex flex-col">
             <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center">
-              Auto<span className="text-primary">Junction</span>
+              Three<span className="text-primary"> Wheeler</span>
             </span>
             <span className="text-[10px] text-gray-400 font-semibold tracking-wide uppercase leading-none">
               India's Trusted Three Wheeler Portal
             </span>
           </Link>
           <p className="text-gray-400 text-xs leading-relaxed max-w-sm">
-            AutoJunction is India's largest marketplace and information portal for Three Wheelers. We provide exhaustive details, expert reviews, and specifications for passenger auto rickshaws, cargo loaders, and electric commercial vehicles. Trusted by over 50,000 transport businesses across India.
+            Three Wheeler is India's largest marketplace and information portal for Three Wheelers. We provide exhaustive details, expert reviews, and specifications for passenger auto rickshaws, cargo loaders, and electric commercial vehicles. Trusted by over 50,000 transport businesses across India.
           </p>
           {/* Social Icons */}
           <div className="flex space-x-3 pt-2">
@@ -127,40 +144,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Corporate Info & App Badges Row */}
-      <div className="max-w-7xl mx-auto px-4 py-8 border-t border-gray-800 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      {/* Corporate Info & Disclaimer Row */}
+      <div className="max-w-7xl mx-auto px-4 py-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="space-y-2 text-xs text-gray-400">
-          <div className="flex items-center"><MapPin className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> AutoJunction India Pvt. Ltd., Okhla Industrial Area, Phase-III, New Delhi, 110020</div>
-          <div className="flex items-center"><Mail className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> support@autojunction.in</div>
-        </div>
-
-        {/* Download App badges */}
-        <div className="flex space-x-3 md:justify-center">
-          {/* Styled Apple badge */}
-          <div className="bg-black border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5 flex items-center space-x-2 cursor-pointer transition-all w-36">
-            <svg viewBox="0 0 384 512" className="w-5 h-5 fill-white flex-shrink-0">
-              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-22.9-84.5-22.4-45.3.6-87.3 26.2-110.3 66.3-47.7 83-12.2 205.8 33.4 271.9 22.3 32.3 48.7 68.2 82.4 67-33.6-1.2-46.2-22.4-85.7-22.4-39.7 0-53.1 22.4-85.3 22.4 34.3 1.2 59.4-32.3 81.7-65.1 25.8-37.3 36.7-73.6 37-75.7-.7-.3-72.3-27.8-72.9-110.6zM290.7 83.4c21.8-26.2 35.5-61.7 30.6-97.4-30.2 1.2-68.7 20-90.3 45.1-19 22.1-35.5 58.3-30.5 93.1 33.6 2.6 70-17 90.2-40.8z"/>
-            </svg>
-            <div className="flex flex-col text-left">
-              <span className="text-[9px] text-gray-400 uppercase leading-none">Download on the</span>
-              <span className="text-xs text-white font-bold leading-none mt-1">App Store</span>
-            </div>
-          </div>
-          {/* Styled Android badge */}
-          <div className="bg-black border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5 flex items-center space-x-2 cursor-pointer transition-all w-36">
-            <svg viewBox="0 0 512 512" className="w-5 h-5 fill-white flex-shrink-0">
-              <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58 33.2-60.1-60.1 118.1 26.9zM385.4 337.8L104.6 499l220.7-221.3 60.1 60.1z"/>
-            </svg>
-            <div className="flex flex-col text-left">
-              <span className="text-[9px] text-gray-400 uppercase leading-none">Get it on</span>
-              <span className="text-xs text-white font-bold leading-none mt-1">Google Play</span>
-            </div>
-          </div>
+          <div className="flex items-center"><MapPin className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> Three Wheeler India Pvt. Ltd., Okhla Industrial Area, Phase-III, New Delhi, 110020</div>
+          <div className="flex items-center"><Mail className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> support@threewheeler.in</div>
         </div>
 
         {/* Disclaimer notes */}
-        <div className="text-right text-[10px] text-gray-500 space-y-1">
-          <p>© {new Date().getFullYear()} AutoJunction. All Rights Reserved.</p>
+        <div className="text-left md:text-right text-[10px] text-gray-500 space-y-1">
+          <p>© {new Date().getFullYear()} Three Wheeler. All Rights Reserved.</p>
           <p>Ex-showroom prices listed are indicative and vary by state. T&C apply.</p>
         </div>
       </div>

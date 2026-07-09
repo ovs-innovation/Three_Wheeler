@@ -89,15 +89,39 @@ function DealersContent() {
     }
   }, [selectedState, selectedCity]);
 
-  const handleLeadSubmit = (e) => {
+  const handleLeadSubmit = async (e) => {
     e.preventDefault();
     if (leadForm.name && leadForm.phone) {
-      setLeadSubmitted(true);
-      setTimeout(() => {
-        setShowLeadModal(false);
-        setLeadSubmitted(false);
-        setLeadForm({ name: '', phone: '', vehicle: '' });
-      }, 3000);
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enquiries`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: leadForm.name,
+            phone: leadForm.phone,
+            email: 'guest@autojunction.com',
+            city: leadDealer.city || 'Delhi/NCR',
+            vehicleName: leadForm.vehicle || `${leadDealer.name} callback`,
+            type: 'Request Callback',
+            message: `Lead routed directly from dealer list page for dealer: ${leadDealer.name}`
+          }),
+        });
+
+        const result = await response.json();
+        if (response.ok && result.success) {
+          setLeadSubmitted(true);
+          setTimeout(() => {
+            setShowLeadModal(false);
+            setLeadSubmitted(false);
+            setLeadForm({ name: '', phone: '', vehicle: '' });
+          }, 3000);
+        } else {
+          alert(result.message || 'Submission failed.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Server connection error occurred.');
+      }
     }
   };
 
