@@ -30,23 +30,10 @@ app.use(
 );
 
 // Enable CORS with credential support (no wildcard origins allowed when credentials: true)
-const allowedOrigins = process.env.CORS_ORIGIN 
-  ? process.env.CORS_ORIGIN.split(',') 
-  : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
-
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Allow internal/server-to-server requests (like Postman or mobile requests with no origin)
-      if (!origin) return callback(null, true);
-      
-      if (allowedOrigins.includes(origin) || process.env.NODE_ENV === 'development') {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true
+    origin: true,
+    credentials: true,
   })
 );
 
@@ -94,10 +81,10 @@ app.use((req, res, next) => {
 // Global error handling middleware
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-  
+
   // Format errors array if message is the only info
-  const errors = process.env.NODE_ENV === 'development' 
-    ? [err.message, err.stack] 
+  const errors = process.env.NODE_ENV === 'development'
+    ? [err.message, err.stack]
     : [err.message];
 
   res.status(statusCode).json({
