@@ -43,12 +43,17 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchLiveHomeData = async () => {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) {
+        console.warn('NEXT_PUBLIC_API_URL is not set, using static data.');
+        return;
+      }
       try {
         const [resVehicles, resBrands, resNews, resBlogs] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles?limit=24`).then(r => r.json()),
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`).then(r => r.json()),
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`).then(r => r.json()),
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`).then(r => r.json())
+          fetch(`${apiUrl}/vehicles?limit=24`).then(r => r.json()),
+          fetch(`${apiUrl}/brands`).then(r => r.json()),
+          fetch(`${apiUrl}/news`).then(r => r.json()),
+          fetch(`${apiUrl}/blogs`).then(r => r.json())
         ]);
 
         if (resVehicles.success && resVehicles.data?.vehicles) {
@@ -76,8 +81,8 @@ export default function HomePage() {
   const blogsData = liveBlogs;
   
   // Filter popular categories
-  const popularPassenger = vehiclesData.filter(v => v.category.toLowerCase().includes('passenger') || v.category.toLowerCase().includes('auto') || (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'passenger')).slice(0, 4);
-  const popularCargo = vehiclesData.filter(v => v.category.toLowerCase().includes('cargo') || v.category.toLowerCase().includes('loader') || v.category.toLowerCase().includes('pickup') || (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'cargo')).slice(0, 4);
+  const popularPassenger = vehiclesData.filter(v => { const cat = (v.category || v.vehicleType || '').toLowerCase(); return cat.includes('passenger') || cat.includes('auto') || (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'passenger'); }).slice(0, 4);
+  const popularCargo = vehiclesData.filter(v => { const cat = (v.category || v.vehicleType || '').toLowerCase(); return cat.includes('cargo') || cat.includes('loader') || cat.includes('pickup') || (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'cargo'); }).slice(0, 4);
   const electricModels = vehiclesData.filter(v => v.fuelType === 'Electric').slice(0, 4);
 
   // Filter latest and news

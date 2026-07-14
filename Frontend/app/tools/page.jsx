@@ -94,9 +94,11 @@ export default function ToolsSuitePage() {
   };
 
   const suggestedVehicles = vehiclesData.filter(v => {
-    const isCargo = v.category.toLowerCase().includes('cargo') || 
-                    v.category.toLowerCase().includes('loader') || 
-                    v.category.toLowerCase().includes('pickup');
+    const catStr = (v.category || v.vehicleType || '').toLowerCase();
+    const isCargo = catStr.includes('cargo') || 
+                    catStr.includes('loader') || 
+                    catStr.includes('pickup') ||
+                    (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'cargo');
     if (!isCargo) return false;
     const payloadVal = parseInt(v.payloadCapacity) || 0;
     return payloadVal >= cargoWeight && payloadVal <= cargoWeight + 250;

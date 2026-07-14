@@ -32,15 +32,18 @@ export default function VehicleDetailsPage() {
   useEffect(() => {
     const fetchVehicle = async () => {
       if (!id) return;
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${id}`);
-        const result = await response.json();
-        if (result.success && result.data) {
-          setVehicle(result.data);
-          return;
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (apiUrl) {
+        try {
+          const response = await fetch(`${apiUrl}/vehicles/${id}`);
+          const result = await response.json();
+          if (result.success && result.data) {
+            setVehicle(result.data);
+            return;
+          }
+        } catch (err) {
+          console.error('Failed to fetch live vehicle specs, trying fallback static file:', err);
         }
-      } catch (err) {
-        console.error('Failed to fetch live vehicle specs, trying fallback static file:', err);
       }
 
       // Fallback

@@ -20,8 +20,10 @@ function NewsContent() {
 
   useEffect(() => {
     const fetchLiveNews = async () => {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) return;
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`).then(r => r.json());
+        const res = await fetch(`${apiUrl}/news`).then(r => r.json());
         if (res.success && res.data) {
           setLiveNews(res.data);
         }
@@ -45,7 +47,7 @@ function NewsContent() {
   // Filter News
   const filteredNews = newsData.filter(news => {
     if (activeCategory === 'All News') return true;
-    return news.category.toLowerCase() === activeCategory.toLowerCase();
+    return (news.category || '').toLowerCase() === activeCategory.toLowerCase();
   });
 
   // Featured News (Latest news of the list)

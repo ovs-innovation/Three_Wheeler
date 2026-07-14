@@ -20,10 +20,12 @@ function VehiclesCatalogContent() {
 
   useEffect(() => {
     const fetchLiveCatalog = async () => {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) return;
       try {
         const [resVehicles, resBrands] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles?limit=1000`).then(r => r.json()),
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`).then(r => r.json())
+          fetch(`${apiUrl}/vehicles?limit=1000`).then(r => r.json()),
+          fetch(`${apiUrl}/brands`).then(r => r.json())
         ]);
         if (resVehicles.success && resVehicles.data?.vehicles) {
           setLiveVehicles(resVehicles.data.vehicles);
@@ -115,7 +117,7 @@ function VehiclesCatalogContent() {
       const q = searchVal.toLowerCase();
       const match = v.name.toLowerCase().includes(q) || 
                     v.brandName.toLowerCase().includes(q) ||
-                    v.category.toLowerCase().includes(q) ||
+                    (v.category || v.vehicleType || '').toLowerCase().includes(q) ||
                     v.fuelType.toLowerCase().includes(q);
       if (!match) return false;
     }
@@ -132,10 +134,12 @@ function VehiclesCatalogContent() {
 
     // 5. Category Type
     if (selectedCategory !== 'all') {
-      const isCargo = v.category.toLowerCase().includes('cargo') || 
-                      v.category.toLowerCase().includes('loader') || 
-                      v.category.toLowerCase().includes('pickup') || 
-                      v.category.toLowerCase().includes('delivery');
+      const catStr = (v.category || v.vehicleType || '').toLowerCase();
+                      const isCargo = catStr.includes('cargo') || 
+                      catStr.includes('loader') || 
+                      catStr.includes('pickup') || 
+                      catStr.includes('delivery') ||
+                      (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'cargo');
       if (selectedCategory === 'passenger' && isCargo) return false;
       if (selectedCategory === 'cargo' && !isCargo) return false;
     }
@@ -147,9 +151,11 @@ function VehiclesCatalogContent() {
 
     // 7. Payload Capacity
     if (minPayload > 0) {
-      const isCargo = v.category.toLowerCase().includes('cargo') || 
-                      v.category.toLowerCase().includes('loader') || 
-                      v.category.toLowerCase().includes('pickup');
+      const catStr2 = (v.category || v.vehicleType || '').toLowerCase();
+                      const isCargo = catStr2.includes('cargo') || 
+                      catStr2.includes('loader') || 
+                      catStr2.includes('pickup') ||
+                      (v.cargoPassenger && v.cargoPassenger.toLowerCase() === 'cargo');
       if (!isCargo) return false;
       
       const payloadVal = parseInt(v.payloadCapacity) || 0;

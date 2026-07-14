@@ -15,15 +15,18 @@ export default function BlogDetailsPage() {
   useEffect(() => {
     const fetchBlog = async () => {
       if (!id) return;
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}`);
-        const result = await response.json();
-        if (result.success && result.data) {
-          setBlog(result.data);
-          return;
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (apiUrl) {
+        try {
+          const response = await fetch(`${apiUrl}/blogs/${id}`);
+          const result = await response.json();
+          if (result.success && result.data) {
+            setBlog(result.data);
+            return;
+          }
+        } catch (err) {
+          console.error('Failed to fetch live blog article, trying fallback static file:', err);
         }
-      } catch (err) {
-        console.error('Failed to fetch live blog article, trying fallback static file:', err);
       }
 
       // Fallback

@@ -64,7 +64,7 @@ export default function Header() {
       .filter(v =>
         v.name.toLowerCase().includes(query) ||
         v.brandName.toLowerCase().includes(query) ||
-        v.category.toLowerCase().includes(query) ||
+        (v.category || v.vehicleType || '').toLowerCase().includes(query) ||
         v.fuelType.toLowerCase().includes(query)
       )
       .slice(0, 6);

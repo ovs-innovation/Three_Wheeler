@@ -15,15 +15,18 @@ export default function NewsDetailsPage() {
   useEffect(() => {
     const fetchArticle = async () => {
       if (!id) return;
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news/${id}`);
-        const result = await response.json();
-        if (result.success && result.data) {
-          setArticle(result.data);
-          return;
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (apiUrl) {
+        try {
+          const response = await fetch(`${apiUrl}/news/${id}`);
+          const result = await response.json();
+          if (result.success && result.data) {
+            setArticle(result.data);
+            return;
+          }
+        } catch (err) {
+          console.error('Failed to fetch live news article, trying fallback static file:', err);
         }
-      } catch (err) {
-        console.error('Failed to fetch live news article, trying fallback static file:', err);
       }
 
       // Fallback

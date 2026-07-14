@@ -20,8 +20,10 @@ function BlogsContent() {
 
   useEffect(() => {
     const fetchLiveBlogs = async () => {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) return;
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`).then(r => r.json());
+        const res = await fetch(`${apiUrl}/blogs`).then(r => r.json());
         if (res.success && res.data) {
           setLiveBlogs(res.data);
         }
@@ -45,7 +47,7 @@ function BlogsContent() {
   // Filter Blogs
   const filteredBlogs = blogsData.filter(blog => {
     if (activeCategory === 'All Articles') return true;
-    return blog.category.toLowerCase() === activeCategory.toLowerCase();
+    return (blog.category || '').toLowerCase() === activeCategory.toLowerCase();
   });
 
   const featuredBlog = filteredBlogs[0];

@@ -33,10 +33,12 @@ export default function VehicleCard({ vehicle }) {
     toggleWishlist(vehicle.id);
   };
 
-  const isCargo = vehicle.category.toLowerCase().includes('cargo') || 
-                  vehicle.category.toLowerCase().includes('loader') || 
-                  vehicle.category.toLowerCase().includes('pickup') ||
-                  vehicle.category.toLowerCase().includes('delivery');
+  const categoryStr = (vehicle.category || vehicle.vehicleType || '').toLowerCase();
+  const isCargo = categoryStr.includes('cargo') || 
+                  categoryStr.includes('loader') || 
+                  categoryStr.includes('pickup') ||
+                  categoryStr.includes('delivery') ||
+                  (vehicle.cargoPassenger && vehicle.cargoPassenger.toLowerCase() === 'cargo');
 
   return (
     <div className="bg-white border border-brand-border hover:border-primary rounded-xl overflow-hidden hover-scale custom-shadow flex flex-col h-full relative group">
@@ -97,11 +99,11 @@ export default function VehicleCard({ vehicle }) {
           {/* Pricing Info */}
           <div className="mb-3">
             <div className="text-lg font-black text-brand-dark">
-              ₹{formatPrice(vehicle.priceMin)} - {formatPrice(vehicle.priceMax)} Lakh*
+              ₹{formatPrice(vehicle.priceMin || 0)} - {formatPrice(vehicle.priceMax || 0)} Lakh*
             </div>
             <div className="text-xs text-gray-500 flex justify-between mt-0.5 font-medium">
               <span>Ex-Showroom Price</span>
-              <span className="text-brand-green font-bold bg-green-50 px-1.5 py-0.5 rounded">EMI starting at ₹{vehicle.emi.toLocaleString('en-IN')}/mo</span>
+              <span className="text-brand-green font-bold bg-green-50 px-1.5 py-0.5 rounded">EMI starting at ₹{(vehicle.emi || 0).toLocaleString('en-IN')}/mo</span>
             </div>
           </div>
 
@@ -114,7 +116,7 @@ export default function VehicleCard({ vehicle }) {
                 {isCargo ? 'Payload' : 'Seating'}
               </span>
               <span className="text-xs font-extrabold text-brand-dark truncate w-full px-1">
-                {isCargo ? vehicle.payloadCapacity : vehicle.seatingCapacity.replace(' Passenger', '')}
+                {isCargo ? (vehicle.payloadCapacity || 'N/A') : (vehicle.seatingCapacity || 'N/A').replace(' Passenger', '')}
               </span>
             </div>
 
@@ -125,7 +127,7 @@ export default function VehicleCard({ vehicle }) {
                 {vehicle.fuelType === 'Electric' ? 'Range' : 'Mileage'}
               </span>
               <span className="text-xs font-extrabold text-brand-dark truncate w-full px-1">
-                {vehicle.fuelType === 'Electric' ? vehicle.batteryRange.replace(' km/charge', ' km') : vehicle.mileage}
+                {vehicle.fuelType === 'Electric' ? (vehicle.batteryRange || 'N/A').replace(' km/charge', ' km') : (vehicle.mileage || 'N/A')}
               </span>
             </div>
 
@@ -136,7 +138,7 @@ export default function VehicleCard({ vehicle }) {
                 {vehicle.fuelType === 'Electric' ? 'Motor' : 'Engine'}
               </span>
               <span className="text-xs font-extrabold text-brand-dark truncate w-full px-1">
-                {vehicle.fuelType === 'Electric' ? vehicle.motorPower.replace(' kW BLDC', ' kW') : vehicle.engineCapacity.replace(' cc DTS-i Engine', ' cc').replace(' cc Direct Injection', ' cc').replace(' cc Engine', ' cc').replace(' cc Spark Ignition', ' cc')}
+                {vehicle.fuelType === 'Electric' ? (vehicle.motorPower || 'N/A').replace(' kW BLDC', ' kW') : (vehicle.engineCapacity || 'N/A').replace(' cc DTS-i Engine', ' cc').replace(' cc Direct Injection', ' cc').replace(' cc Engine', ' cc').replace(' cc Spark Ignition', ' cc')}
               </span>
             </div>
           </div>
