@@ -34,13 +34,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-brand-dark text-gray-300 border-t-4 border-primary mt-auto">
+    <footer className="bg-[#F3F8FC] text-gray-600 border-t-4 border-primary mt-auto">
       {/* Upper Newsletter Section */}
-      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 border-b border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 border-b border-gray-200">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           <div>
-            <h3 className="text-white text-lg font-bold">Subscribe to Fleet Insights</h3>
-            <p className="text-gray-400 text-xs mt-1">Get the latest launch updates, government EV schemes (FAME), and fuel profitability guides weekly.</p>
+            <h3 className="text-brand-dark text-lg font-bold">Subscribe to Fleet Insights</h3>
+            <p className="text-gray-500 text-xs mt-1">Get the latest launch updates, government EV schemes (FAME), and fuel profitability guides weekly.</p>
           </div>
           <div className="lg:col-span-2">
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 max-w-lg lg:ml-auto">
@@ -50,7 +50,7 @@ export default function Footer() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-grow bg-gray-900 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white outline-none focus:border-primary"
+                className="flex-grow bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-brand-dark outline-none focus:border-primary"
               />
               <button 
                 type="submit" 
@@ -67,37 +67,37 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
         {/* Brand Profile Column */}
         <div className="col-span-2 md:col-span-4 lg:col-span-2 space-y-4">
-          <Link href="/" className="flex flex-col">
-            <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center">
-              Three<span className="text-primary"> Wheeler</span>
-            </span>
-            <span className="text-[10px] text-gray-400 font-semibold tracking-wide uppercase leading-none">
-              India's Trusted Three Wheeler Portal
-            </span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <img src="/images/logo.png" alt="3Pahia Logo" className="h-10 w-auto object-contain" />
+            <div className="flex flex-col">
+              <span className="text-[10px] text-gray-400 font-semibold tracking-wide uppercase leading-none">
+                India's Trusted 3Pahia Portal
+              </span>
+            </div>
           </Link>
-          <p className="text-gray-400 text-xs leading-relaxed max-w-sm">
-            Three Wheeler is India's largest marketplace and information portal for Three Wheelers. We provide exhaustive details, expert reviews, and specifications for passenger auto rickshaws, cargo loaders, and electric commercial vehicles. Trusted by over 50,000 transport businesses across India.
+          <p className="text-gray-500 text-xs leading-relaxed max-w-sm">
+            3Pahia is India's largest marketplace and information portal for three-wheelers. We provide exhaustive details, expert reviews, and specifications for passenger auto rickshaws, cargo loaders, and electric commercial vehicles. Trusted by over 50,000 transport businesses across India.
           </p>
           {/* Social Icons */}
           <div className="flex space-x-3 pt-2">
-            <a href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Facebook">
+            <a href="#" className="w-8 h-8 rounded-full bg-gray-200/80 flex items-center justify-center text-gray-500 hover:bg-[#2563EB] hover:text-white transition-colors" aria-label="Facebook">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
               </svg>
             </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Twitter">
+            <a href="#" className="w-8 h-8 rounded-full bg-gray-200/80 flex items-center justify-center text-gray-500 hover:bg-[#2563EB] hover:text-white transition-colors" aria-label="Twitter">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Youtube">
+            <a href="#" className="w-8 h-8 rounded-full bg-gray-200/80 flex items-center justify-center text-gray-500 hover:bg-[#2563EB] hover:text-white transition-colors" aria-label="Youtube">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.525 3.545 12 3.545 12 3.545s-7.525 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.025 0 12 0 12s0 3.975.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.863.508 9.388.508 9.388.508s7.525 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.975 24 12 24 12s0-3.975-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Linkedin">
+            <a href="#" className="w-8 h-8 rounded-full bg-gray-200/80 flex items-center justify-center text-gray-500 hover:bg-[#2563EB] hover:text-white transition-colors" aria-label="Linkedin">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/>
               </svg>
             </a>
           </div>
@@ -105,9 +105,9 @@ export default function Footer() {
 
         {/* Popular Brands Column */}
         <div className="space-y-3">
-          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Popular Brands</h4>
-          <ul className="text-xs space-y-2 text-gray-400">
-            <li><Link href="/vehicles?brand=bajaj" className="hover:text-primary transition-colors">Bajaj Three Wheelers</Link></li>
+          <h4 className="text-brand-dark text-xs font-bold uppercase tracking-wider">Popular Brands</h4>
+          <ul className="text-xs space-y-2 text-gray-500">
+            <li><Link href="/vehicles?brand=bajaj" className="hover:text-primary transition-colors">Bajaj 3Pahias</Link></li>
             <li><Link href="/vehicles?brand=piaggio" className="hover:text-primary transition-colors">Piaggio Ape rickshaws</Link></li>
             <li><Link href="/vehicles?brand=mahindra" className="hover:text-primary transition-colors">Mahindra Treo & Alfa</Link></li>
             <li><Link href="/vehicles?brand=tvs" className="hover:text-primary transition-colors">TVS King range</Link></li>
@@ -119,9 +119,9 @@ export default function Footer() {
 
         {/* Fuel & Categories Column */}
         <div className="space-y-3">
-          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Fuel Type & Fuel</h4>
-          <ul className="text-xs space-y-2 text-gray-400">
-            <li><Link href="/vehicles?fuel=Electric" className="hover:text-primary transition-colors">Electric Three Wheelers</Link></li>
+          <h4 className="text-brand-dark text-xs font-bold uppercase tracking-wider">Fuel Type & Fuel</h4>
+          <ul className="text-xs space-y-2 text-gray-500">
+            <li><Link href="/vehicles?fuel=Electric" className="hover:text-primary transition-colors">Electric 3Pahias</Link></li>
             <li><Link href="/vehicles?fuel=CNG" className="hover:text-primary transition-colors">CNG Auto Rickshaws</Link></li>
             <li><Link href="/vehicles?fuel=Diesel" className="hover:text-primary transition-colors">Diesel Cargo Loaders</Link></li>
             <li><Link href="/vehicles?fuel=LPG" className="hover:text-primary transition-colors">LPG Passenger Rickshaws</Link></li>
@@ -132,11 +132,11 @@ export default function Footer() {
 
         {/* Tools & Resources Column */}
         <div className="space-y-3">
-          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Tools & Info</h4>
-          <ul className="text-xs space-y-2 text-gray-400">
+          <h4 className="text-brand-dark text-xs font-bold uppercase tracking-wider">Tools & Info</h4>
+          <ul className="text-xs space-y-2 text-gray-500">
             <li><Link href="/tools" className="hover:text-primary transition-colors">EMI Calculator</Link></li>
             <li><Link href="/tools" className="hover:text-primary transition-colors">Running Cost Calculator</Link></li>
-            <li><Link href="/compare" className="hover:text-primary transition-colors">Compare Three Wheelers</Link></li>
+            <li><Link href="/compare" className="hover:text-primary transition-colors">Compare 3Pahias</Link></li>
             <li><Link href="/dealers" className="hover:text-primary transition-colors">Dealer Locations</Link></li>
             <li><Link href="/news" className="hover:text-primary transition-colors">Commercial News</Link></li>
             <li><Link href="/blogs" className="hover:text-primary transition-colors">Buying Guides</Link></li>
@@ -145,15 +145,15 @@ export default function Footer() {
       </div>
 
       {/* Corporate Info & Disclaimer Row */}
-      <div className="max-w-7xl mx-auto px-4 py-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="space-y-2 text-xs text-gray-400">
-          <div className="flex items-center"><MapPin className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> Three Wheeler India Pvt. Ltd., Okhla Industrial Area, Phase-III, New Delhi, 110020</div>
-          <div className="flex items-center"><Mail className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> support@threewheeler.in</div>
+      <div className="max-w-7xl mx-auto px-4 py-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="space-y-2 text-xs text-gray-500">
+          <div className="flex items-center"><MapPin className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> 3Pahia India Pvt. Ltd., Okhla Industrial Area, Phase-III, New Delhi, 110020</div>
+          <div className="flex items-center"><Mail className="w-3.5 h-3.5 mr-2 text-primary flex-shrink-0" /> support@3pahia.in</div>
         </div>
 
         {/* Disclaimer notes */}
         <div className="text-left md:text-right text-[10px] text-gray-500 space-y-1">
-          <p>© {new Date().getFullYear()} Three Wheeler. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} 3Pahia. All Rights Reserved.</p>
           <p>Ex-showroom prices listed are indicative and vary by state. T&C apply.</p>
         </div>
       </div>

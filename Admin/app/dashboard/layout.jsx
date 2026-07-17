@@ -57,12 +57,16 @@ export default function DashboardLayout({ children }) {
       <aside className="hidden lg:flex flex-col w-64 bg-brand-sidebar border-r border-brand-border shrink-0">
         {/* Header Branding */}
         <div className="h-20 border-b border-brand-border flex items-center px-6">
-          <Link href="/dashboard" className="flex flex-col">
-            <span className="text-base font-extrabold tracking-tight text-white flex items-center gap-1">
-              Three<span className="text-brand-primary"> Wheeler</span>
-              <span className="text-[9px] bg-brand-primary/20 text-brand-primary px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">CMS</span>
-            </span>
-            <span className="text-[9px] text-brand-sec-text font-bold uppercase tracking-wider mt-0.5 leading-none">Three-Wheeler Portal</span>
+          <Link href="/dashboard" className="flex items-center gap-2">
+            <div className="bg-white p-1 rounded-lg flex items-center justify-center">
+              <img src="/images/logo.png" alt="3Pahia Logo" className="h-7 w-auto object-contain" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-white font-extrabold leading-none">
+                3Pahia <span className="text-brand-primary text-[8px] bg-brand-primary/20 px-1 py-0.5 rounded ml-0.5 uppercase tracking-wider">CMS</span>
+              </span>
+              <span className="text-[8px] text-brand-sec-text font-bold uppercase tracking-wider mt-0.5 leading-none">3Pahia Portal</span>
+            </div>
           </Link>
         </div>
 
@@ -134,7 +138,7 @@ export default function DashboardLayout({ children }) {
               <span className="block text-brand-sec-text uppercase tracking-wider mt-0.5">{admin?.role}</span>
             </div>
             <div className="w-8 h-8 rounded-full bg-brand-card border border-brand-border flex items-center justify-center text-brand-primary font-bold text-xs uppercase shadow">
-              {admin?.name?.charAt(0) || 'T'}
+              {admin?.name?.charAt(0) || '3P'}
             </div>
           </div>
         </header>

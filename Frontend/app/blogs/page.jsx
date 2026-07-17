@@ -25,7 +25,10 @@ function BlogsContent() {
       try {
         const res = await fetch(`${apiUrl}/blogs`).then(r => r.json());
         if (res.success && res.data) {
-          setLiveBlogs(res.data);
+          const blogsList = Array.isArray(res.data)
+            ? res.data
+            : (Array.isArray(res.data.blogs) ? res.data.blogs : null);
+          if (blogsList) setLiveBlogs(blogsList);
         }
       } catch (err) {
         console.error('Failed to sync live blog data:', err);
@@ -60,7 +63,7 @@ function BlogsContent() {
         <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>Business Guides & Blogs</span>
       </div>
 
-      <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">Three Wheeler Business & Profitability Guides</h1>
+      <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">3Pahia Business & Profitability Guides</h1>
       <p className="text-xs text-gray-500 mb-8 max-w-xl">
         Actionable articles on starting logistics deliveries, maintaining lead-acid/lithium-ion batteries, and calculating cost per kilometer for fleet operations.
       </p>
@@ -128,7 +131,7 @@ function BlogsContent() {
               className="bg-white border border-brand-border rounded-xl overflow-hidden shadow-sm flex flex-col justify-between hover-scale custom-shadow"
             >
               <div className="h-44 bg-gray-50 border-b flex items-center justify-center font-black text-xl text-gray-300">
-                THREE WHEELER BLOG
+                3PAHIA BLOG
               </div>
               
               <div className="p-5 flex-grow flex flex-col justify-between">

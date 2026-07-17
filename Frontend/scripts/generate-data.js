@@ -44,7 +44,7 @@ const CATEGORIES = [
   'Petrol Auto', 
   'Mini Cargo', 
   'Loader Auto', 
-  'Pickup Three Wheeler', 
+  'Pickup 3Pahia', 
   'Last Mile Delivery'
 ];
 
@@ -345,9 +345,9 @@ for (let i = 1; i <= 52; i++) {
 const DEALERS = [];
 const dealerNames = [
   'Sri Vinayaka Auto Agencies', 'Shree Balaji Commercial Motors', 'Apex Auto Distributors', 'Sai Ram Motors', 
-  'Ganga Three Wheeler Emporium', 'Vanguard EV Logistics Hub', 'Karan Automobile Solutions', 'Metro Commercials',
+  'Ganga 3Pahia Emporium', 'Vanguard EV Logistics Hub', 'Karan Automobile Solutions', 'Metro Commercials',
   'Pioneer Cargo Motors', 'Narmada Green Wheels', 'Elite Passenger Rickshaw Point', 'Saraswati E-Motors',
-  'Jai Hind Auto Traders', 'United Logistics Wheels', 'Royal Three Wheeler Hub', 'Krishna Commercial Vehicles',
+  'Jai Hind Auto Traders', 'United Logistics Wheels', 'Royal 3Pahia Hub', 'Krishna Commercial Vehicles',
   'Kolkata E-Rickshaw Point', 'Chola Green Transports', 'Deccan Motors Group', 'Northern Auto Agency'
 ];
 

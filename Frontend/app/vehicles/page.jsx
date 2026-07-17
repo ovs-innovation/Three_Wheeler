@@ -27,11 +27,17 @@ function VehiclesCatalogContent() {
           fetch(`${apiUrl}/vehicles?limit=1000`).then(r => r.json()),
           fetch(`${apiUrl}/brands`).then(r => r.json())
         ]);
-        if (resVehicles.success && resVehicles.data?.vehicles) {
-          setLiveVehicles(resVehicles.data.vehicles);
+        if (resVehicles.success && resVehicles.data) {
+          const vehiclesList = Array.isArray(resVehicles.data.vehicles)
+            ? resVehicles.data.vehicles
+            : (Array.isArray(resVehicles.data) ? resVehicles.data : null);
+          if (vehiclesList) setLiveVehicles(vehiclesList);
         }
         if (resBrands.success && resBrands.data) {
-          setLiveBrands(resBrands.data);
+          const brandsList = Array.isArray(resBrands.data)
+            ? resBrands.data
+            : (Array.isArray(resBrands.data.brands) ? resBrands.data.brands : null);
+          if (brandsList) setLiveBrands(brandsList);
         }
       } catch (err) {
         console.error('Failed to sync live catalog data, using static files:', err);
@@ -194,7 +200,7 @@ function VehiclesCatalogContent() {
             <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>Vehicles Catalogue</span>
           </div>
           <h1 className="text-2xl md:text-3xl font-black text-brand-dark mt-1">
-            {filterParam === 'wishlist' ? "My Favorite Wishlist" : "Browse Commercial Three Wheelers"}
+            {filterParam === 'wishlist' ? "My Favorite Wishlist" : "Browse Commercial 3Pahias"}
           </h1>
           <p className="text-xs text-gray-500 mt-0.5">
             Showing {filteredVehicles.length} of {vehiclesData.length} matches found matching your filters.
@@ -314,7 +320,7 @@ function VehiclesCatalogContent() {
                     onChange={() => handleFuelChange(fuel)}
                     className="mr-2 rounded border-gray-300 accent-primary focus:ring-primary w-4.5 h-4.5"
                   />
-                  <span>{fuel} Three Wheelers</span>
+                  <span>{fuel} 3Pahias</span>
                 </label>
               ))}
             </div>

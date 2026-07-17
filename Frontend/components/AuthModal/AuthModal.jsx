@@ -338,10 +338,8 @@ export default function AuthModal() {
         </button>
 
         {/* LOGO AND BRANDING */}
-        <div className="text-center mb-6">
-          <span className="text-lg md:text-xl font-extrabold tracking-tight text-primary flex items-center justify-center gap-1">
-            Three<span className="text-brand-dark"> Wheeler</span>
-          </span>
+        <div className="flex flex-col items-center justify-center text-center mb-6">
+          <img src="/images/logo.png" alt="3Pahia Logo" className="h-10 w-auto object-contain mb-1.5" />
           <span className="text-[9px] uppercase font-bold tracking-wider text-gray-400">
             Premium Automotive Portal
           </span>
@@ -773,7 +771,7 @@ export default function AuthModal() {
               </h3>
               <p className="text-xs text-gray-500 font-medium max-w-xs mx-auto leading-relaxed">
                 {tab === 'register'
-                  ? 'Your Three-Wheeler account has been successfully verified. Logging you in...'
+                  ? 'Your 3Pahia account has been successfully verified. Logging you in...'
                   : 'Your account security credentials were successfully modified. You may sign in.'}
               </p>
             </div>
@@ -787,7 +785,7 @@ export default function AuthModal() {
           <div className="space-y-5">
             <div>
               <h3 className="text-xl font-black text-brand-dark">Account Recovery</h3>
-              <p className="text-xs text-gray-400 font-medium font-display">Enter your email address to recover your Three Wheeler account credentials.</p>
+              <p className="text-xs text-gray-400 font-medium font-display">Enter your email address to recover your 3Pahia account credentials.</p>
             </div>
 
             <form onSubmit={handleForgotSubmit} className="space-y-4">

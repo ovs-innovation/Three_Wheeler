@@ -49,14 +49,14 @@ export default function AdminLoginPage() {
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-primary to-brand-secondary"></div>
 
         <div className="text-center">
-          <div className="inline-flex p-3 bg-brand-primary/10 text-brand-primary border border-brand-primary/20 rounded-2xl mb-4">
-            <ShieldCheck size={28} />
+          <div className="inline-flex p-2 bg-white rounded-2xl mb-4 border border-brand-border shadow-md">
+            <img src="/images/logo.png" alt="3Pahia Logo" className="h-10 w-auto object-contain" />
           </div>
           <h2 className="text-2xl font-extrabold tracking-tight">
-            Three Wheeler <span className="text-brand-primary font-display font-black">Admin Panel</span>
+            3Pahia <span className="text-brand-primary font-display font-black">Admin Panel</span>
           </h2>
           <p className="mt-1.5 text-xs text-brand-sec-text">
-            Three Wheeler Enterprise Automotive Platform
+            3Pahia Enterprise Automotive Platform
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@threewheeler.com"
+                  placeholder="admin@3pahia.com"
                   className="w-full bg-brand-bg border border-brand-border focus:border-brand-primary rounded-lg text-xs pl-10 pr-4 py-3 outline-none text-brand-text transition-colors"
                 />
               </div>

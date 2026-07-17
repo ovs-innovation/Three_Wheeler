@@ -396,7 +396,7 @@ export default function ProfilePage() {
           {/* DANGER DELETION SEGMENT */}
           <div className="border-t border-red-100/60 pt-6 mt-8 flex justify-between items-center">
             <div>
-              <span className="block text-xs font-bold text-gray-800">Close Three Wheeler Account</span>
+              <span className="block text-xs font-bold text-gray-800">Close 3Pahia Account</span>
               <span className="block text-[10px] text-gray-400 mt-0.5">This will completely erase your wishlist, comparison parameters, and logged session.</span>
             </div>
             <button

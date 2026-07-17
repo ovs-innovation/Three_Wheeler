@@ -56,17 +56,29 @@ export default function HomePage() {
           fetch(`${apiUrl}/blogs`).then(r => r.json())
         ]);
 
-        if (resVehicles.success && resVehicles.data?.vehicles) {
-          setLiveVehicles(resVehicles.data.vehicles);
+        if (resVehicles.success && resVehicles.data) {
+          const vehiclesList = Array.isArray(resVehicles.data.vehicles)
+            ? resVehicles.data.vehicles
+            : (Array.isArray(resVehicles.data) ? resVehicles.data : null);
+          if (vehiclesList) setLiveVehicles(vehiclesList);
         }
         if (resBrands.success && resBrands.data) {
-          setLiveBrands(resBrands.data);
+          const brandsList = Array.isArray(resBrands.data)
+            ? resBrands.data
+            : (Array.isArray(resBrands.data.brands) ? resBrands.data.brands : null);
+          if (brandsList) setLiveBrands(brandsList);
         }
         if (resNews.success && resNews.data) {
-          setLiveNews(resNews.data);
+          const newsList = Array.isArray(resNews.data)
+            ? resNews.data
+            : (Array.isArray(resNews.data.news) ? resNews.data.news : null);
+          if (newsList) setLiveNews(newsList);
         }
         if (resBlogs.success && resBlogs.data) {
-          setLiveBlogs(resBlogs.data);
+          const blogsList = Array.isArray(resBlogs.data)
+            ? resBlogs.data
+            : (Array.isArray(resBlogs.data.blogs) ? resBlogs.data.blogs : null);
+          if (blogsList) setLiveBlogs(blogsList);
         }
       } catch (err) {
         console.error('Failed to sync live home data, using static files:', err);
@@ -134,10 +146,10 @@ export default function HomePage() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <span className="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase inline-block">
-                ★ India's Premier Three-Wheeler Marketplace
+                ★ India's Premier 3Pahia Marketplace
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Compare and Buy the Best <span className="text-primary">Three Wheelers</span> in India
+                Compare and Buy the Best <span className="text-primary">3Pahia Vehicles</span> in India
               </h1>
               <p className="text-gray-300 text-sm md:text-base max-w-xl font-medium">
                 Get ex-showroom prices, payload details, battery range, running cost calculators, and EMI support for auto rickshaws, loader tempos, and e-rickshaws.
@@ -200,7 +212,7 @@ export default function HomePage() {
                 <div className="flex items-center text-primary text-xs font-bold gap-1 mb-1">
                   <RefreshCw className="w-3.5 h-3.5 text-primary" /> Multi-Vehicle Compare Tool
                 </div>
-                <h3 className="text-lg font-black text-brand-dark mb-4">Compare Three Wheelers Side-by-Side</h3>
+                <h3 className="text-lg font-black text-brand-dark mb-4">Compare 3Pahia Side-by-Side</h3>
                 <p className="text-xs text-gray-500 mb-6 leading-relaxed">
                   Select two vehicles to compare their ex-showroom prices, fuel mileage, battery capacities, motor/engine power, payload volume, and warranty.
                 </p>
@@ -259,7 +271,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl font-black text-brand-dark">Featured Three Wheeler Brands</h2>
+                <h2 className="text-2xl font-black text-brand-dark">Featured 3Pahia Brands</h2>
                 <p className="text-xs text-gray-500 mt-1">Browse vehicles from India's leading passenger and cargo auto-rickshaw manufacturers.</p>
               </div>
               <Link href="/vehicles" className="text-xs font-bold text-primary hover:underline flex items-center">View All Brands &rarr;</Link>
@@ -287,7 +299,7 @@ export default function HomePage() {
         {/* BROWSE TABS SYSTEM */}
         <section className="py-12 bg-brand-bg">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl font-black text-brand-dark text-center mb-6">Find Three Wheelers Your Way</h2>
+            <h2 className="text-2xl font-black text-brand-dark text-center mb-6">Find 3Pahia Vehicles Your Way</h2>
             
             {/* Tab Headers */}
             <div className="flex justify-center border-b border-brand-border mb-8 max-w-lg mx-auto text-xs md:text-sm font-bold">
@@ -431,7 +443,7 @@ export default function HomePage() {
             <div className="flex justify-between items-end mb-8">
               <div>
                 <div className="text-xs text-primary font-black uppercase flex items-center gap-1"><Zap className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" /> Go Green, Save Money</div>
-                <h2 className="text-2xl font-black text-brand-dark mt-1">Trending Electric Three Wheelers</h2>
+                <h2 className="text-2xl font-black text-brand-dark mt-1">Trending Electric 3Pahias</h2>
                 <p className="text-xs text-gray-500">Low charging costs, long battery life, and complete road tax exemptions.</p>
               </div>
               <Link href="/vehicles?fuel=Electric" className="text-xs font-bold text-primary hover:underline flex items-center">View All Electric EVs &rarr;</Link>
@@ -454,7 +466,7 @@ export default function HomePage() {
               <span className="bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">Commercial Credit Facility</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-white">Need Financing For Your Auto? Get Loans up to 90%</h2>
               <p className="text-gray-300 text-xs md:text-sm leading-relaxed max-w-xl font-medium">
-                Three Wheeler works with India's largest commercial lenders (SBI, Cholamandalam, Shriram Transport, HDFC) to provide customized loan interest rates starting as low as <span className="text-primary font-bold text-base">8.9% ROI*</span>. We also assist in securing government EMPS / FAME EV subsidies.
+                3Pahia works with India's largest commercial lenders (SBI, Cholamandalam, Shriram Transport, HDFC) to provide customized loan interest rates starting as low as <span className="text-primary font-bold text-base">8.9% ROI*</span>. We also assist in securing government EMPS / FAME EV subsidies.
               </p>
 
               <div className="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6 text-center lg:text-left">
@@ -553,7 +565,7 @@ export default function HomePage() {
         <section className="py-12 bg-white border-b border-brand-border">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-2xl font-black text-brand-dark flex items-center justify-center gap-1.5">
-              <MapPin className="w-5 h-5 text-primary" /> Locate Three Wheeler Dealers Near You
+              <MapPin className="w-5 h-5 text-primary" /> Locate 3Pahia Dealers Near You
             </h2>
             <p className="text-xs text-gray-500 mt-1 max-w-md mx-auto">
               Get contact numbers, addresses, and request price quotes directly from verified brand showrooms in your city.

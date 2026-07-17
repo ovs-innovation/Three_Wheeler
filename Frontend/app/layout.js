@@ -20,22 +20,22 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.threewheeler.in'),
-  title: "Three Wheeler - India's Trusted Three Wheeler Marketplace",
-  description: "Three Wheeler is India's largest marketplace and information portal for Three Wheelers. Find passenger auto rickshaws, cargo loaders, electric rickshaws, LPG/CNG autos, diesel mini-loaders. Compare specs, prices, mileage, payload and find dealers.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.3pahia.in'),
+  title: "3Pahia – India's Trusted Three Wheeler Marketplace",
+  description: "India's trusted marketplace for auto rickshaws, cargo loaders, electric rickshaws, passenger three wheelers, commercial vehicles, and EV three wheelers.",
   keywords: "auto rickshaw, cargo three wheeler, electric auto, electric cargo, CNG auto, LPG auto, diesel loader, TVS King, Bajaj RE, Piaggio Ape, Mahindra Treo, Euler HiLoad, Altigreen, commercial vehicle, three wheeler price, auto comparison, commercial loan",
-  authors: [{ name: "Three Wheeler Commercial Team" }],
+  authors: [{ name: "3Pahia Commercial Team" }],
   openGraph: {
-    title: "Three Wheeler - India's Largest Three Wheeler Platform",
+    title: "3Pahia – India's Largest Three Wheeler Platform",
     description: "Compare prices, mileage, payload capacity, and battery ranges for passenger and cargo three-wheelers in India. Find local dealers and check finance offers.",
-    url: "https://www.threewheeler.in",
-    siteName: "Three Wheeler",
+    url: "https://www.3pahia.in",
+    siteName: "3Pahia",
     images: [
       {
         url: "/images/hero_banner.png",
         width: 1200,
         height: 630,
-        alt: "Three Wheeler Three Wheeler Platform",
+        alt: "3Pahia Three Wheeler Platform",
       },
     ],
     locale: "en_IN",
@@ -43,7 +43,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Three Wheeler - India's Trusted Three Wheeler Portal",
+    title: "3Pahia – India's Trusted Three Wheeler Portal",
     description: "Find your next commercial three-wheeler. Compare brands, browse electric, CNG, and diesel passenger or cargo autos.",
     images: ["/images/hero_banner.png"],
   },

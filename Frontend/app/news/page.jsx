@@ -25,7 +25,10 @@ function NewsContent() {
       try {
         const res = await fetch(`${apiUrl}/news`).then(r => r.json());
         if (res.success && res.data) {
-          setLiveNews(res.data);
+          const newsList = Array.isArray(res.data)
+            ? res.data
+            : (Array.isArray(res.data.news) ? res.data.news : null);
+          if (newsList) setLiveNews(newsList);
         }
       } catch (err) {
         console.error('Failed to sync live news data:', err);
@@ -61,7 +64,7 @@ function NewsContent() {
         <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>CV News & Announcements</span>
       </div>
 
-      <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">Three Wheeler & Commercial Vehicle News</h1>
+      <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">3Pahia & Commercial Vehicle News</h1>
       <p className="text-xs text-gray-500 mb-8 max-w-xl">
         Stay updated with government FAME subsidies, electric loader launches, cargo transport permits, and quarterly manufacturer sales reports in India.
       </p>
@@ -129,7 +132,7 @@ function NewsContent() {
               className="bg-white border border-brand-border rounded-xl overflow-hidden shadow-sm flex flex-col justify-between hover-scale custom-shadow"
             >
               <div className="h-44 bg-gray-50 border-b flex items-center justify-center font-black text-xl text-gray-300">
-                THREE WHEELER NEWS
+                3PAHIA NEWS
               </div>
               
               <div className="p-5 flex-grow flex flex-col justify-between">

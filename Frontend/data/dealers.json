@@ -89,12 +89,12 @@
   },
   {
     "id": "dealer-5",
-    "name": "Ganga Three Wheeler Emporium",
+    "name": "Ganga 3Pahia Emporium",
     "state": "Uttar Pradesh",
     "city": "Lucknow",
     "address": "Plot No. 77, Sector 6, Industrial Area, Lucknow, Uttar Pradesh - 110460",
     "phone": "+91 98765 53877",
-    "email": "sales@gangathreewheeleremporium.com",
+    "email": "sales@ganga3pahiaemporium.com",
     "brands": [
       "Atul Auto",
       "Euler Motors",
@@ -107,7 +107,7 @@
       "Battery Swapping",
       "Finance Assistance"
     ],
-    "mapUrl": "https://maps.google.com/maps?q=Ganga%20Three%20Wheeler%20Emporium%20Lucknow&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    "mapUrl": "https://maps.google.com/maps?q=Ganga%203Pahia%20Emporium%20Lucknow&t=&z=13&ie=UTF8&iwloc=&output=embed"
   },
   {
     "id": "dealer-6",
@@ -309,12 +309,12 @@
   },
   {
     "id": "dealer-15",
-    "name": "Royal Three Wheeler Hub",
+    "name": "Royal 3Pahia Hub",
     "state": "Kerala",
     "city": "Kozhikode",
     "address": "Plot No. 157, Sector 16, Industrial Area, Kozhikode, Kerala - 111610",
     "phone": "+91 98765 52767",
-    "email": "sales@royalthreewheelerhub.com",
+    "email": "sales@royal3pahiahub.com",
     "brands": [
       "Piaggio",
       "Mini Metro",
@@ -327,7 +327,7 @@
       "Battery Swapping",
       "Finance Assistance"
     ],
-    "mapUrl": "https://maps.google.com/maps?q=Royal%20Three%20Wheeler%20Hub%20Kozhikode&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    "mapUrl": "https://maps.google.com/maps?q=Royal%203Pahia%20Hub%20Kozhikode&t=&z=13&ie=UTF8&iwloc=&output=embed"
   },
   {
     "id": "dealer-16",

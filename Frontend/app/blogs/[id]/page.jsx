@@ -68,10 +68,10 @@ export default function BlogDetailsPage() {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Three Wheeler",
+      "name": "3Pahia",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.threewheeler.in/images/logo.png"
+        "url": "https://www.3pahia.in/images/logo.png"
       }
     }
   };

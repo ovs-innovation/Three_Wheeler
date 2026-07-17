@@ -113,7 +113,7 @@ function CompareContent() {
       <div className="mb-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div>
           <div className="text-xs text-gray-400 font-medium">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>Compare Three Wheelers</span>
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>Compare 3Pahias</span>
           </div>
           <h1 className="text-2xl md:text-3xl font-black text-brand-dark mt-1">
             Compare Specs Side-by-Side

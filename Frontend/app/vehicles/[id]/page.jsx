@@ -92,7 +92,7 @@ export default function VehicleDetailsPage() {
     if (navigator.share) {
       navigator.share({
         title: vehicle.name,
-        text: `Check out ${vehicle.name} price and specifications on Three Wheeler!`,
+        text: `Check out ${vehicle.name} price and specifications on 3Pahia!`,
         url: window.location.href,
       }).catch(err => console.log(err));
     } else {

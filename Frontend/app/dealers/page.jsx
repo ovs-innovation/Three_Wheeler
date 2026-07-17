@@ -133,7 +133,7 @@ function DealersContent() {
         <Link href="/" className="hover:text-primary transition-colors">Home</Link> &gt; <span>Dealer Locator</span>
       </div>
 
-      <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">Verified Three Wheeler Showrooms & Dealers</h1>
+      <h1 className="text-2xl md:text-3xl font-black text-brand-dark mb-2">Verified 3Pahia Showrooms & Dealers</h1>
       <p className="text-xs text-gray-500 mb-8 max-w-xl">
         Locate authorized dealers, commercial showrooms, battery swapping centers, and workshops across India.
       </p>
@@ -339,7 +339,7 @@ function DealersContent() {
                       onChange={(e) => setLeadForm({ ...leadForm, vehicle: e.target.value })}
                       className="w-full border rounded-lg px-3 py-2 text-xs font-semibold outline-none bg-gray-50 text-brand-dark"
                     >
-                      <option value="">-- Choose Three Wheeler --</option>
+                      <option value="">-- Choose 3Pahia Vehicle --</option>
                       {dealersData.filter(d => d.id === leadDealer.id)[0]?.brands.map(b => (
                         <option key={b} value={b}>{b} Auto / Loader</option>
                       ))}

@@ -122,13 +122,13 @@ export default function Header() {
           <div className="max-w-7xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between gap-4">
             
             {/* Logo */}
-            <Link href="/" className="flex flex-col flex-shrink-0">
-              <span className="text-xl md:text-2xl font-black tracking-tight text-[#C2410C] flex items-center leading-none">
-                Three<span className="text-gray-900 ml-0.5">Wheeler</span>
-              </span>
-              <span className="text-[9px] text-gray-400 font-semibold tracking-wide uppercase mt-0.5 leading-none">
-                India's Trusted Fleet Portal
-              </span>
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+              <img src="/images/logo.png" alt="3Pahia Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <div className="flex flex-col justify-center">
+                <span className="text-[9px] text-gray-400 font-semibold tracking-wide uppercase leading-none">
+                  India's Trusted Fleet Portal
+                </span>
+              </div>
             </Link>
 
             {/* Search Bar - Desktop */}

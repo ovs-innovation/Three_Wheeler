@@ -4,8 +4,8 @@ import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 export const metadata = {
-  title: 'Three Wheeler - Admin Dashboard',
-  description: 'Administrative dashboard for Three Wheeler marketplace.'
+  title: '3Pahia - Admin Dashboard',
+  description: 'Administrative dashboard for 3Pahia marketplace.'
 };
 
 export default function RootLayout({ children }) {
